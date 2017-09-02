@@ -3,6 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E0EF24EF-8BED-48F9-8DE1-4167DEFA3610}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\UruIT_-_Game_of_Drones__Worksoft_.docx = SolutionItems\UruIT_-_Game_of_Drones__Worksoft_.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Published", "Published", "{9A910399-C8C0-4F05-9836-735947F626FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{1BBD5542-5EA1-446D-86F2-164177AFF680}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AngularApp", "AngularApp", "{90FEBF5D-0ABA-40B7-9E49-7A176DEF8A80}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
