@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Pamint.Commons.DataAccess.Abstracts\Pamint.Commons.DataAccess.Abstracts.csproj" />
+    <ProjectReference Include="..\GameOfDrones.Models.Statistics\GameOfDrones.Models.Statistics.csproj" />
+    <ProjectReference Include="..\GameOfDrones.Services.Abstracts\GameOfDrones.Services.Abstracts.csproj" />
+  </ItemGroup>
+
+</Project>
