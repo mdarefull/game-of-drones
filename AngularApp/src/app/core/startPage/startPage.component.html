@@ -1,0 +1,53 @@
+<div class="row align-items-center justify-content-center">
+    <div class="col-sm-10 col-lg-8 col-xl-6">
+        <h2 class="text-center">Enter the Player's Names</h2>
+        <hr />
+        <div class="form-group row">
+            <div class="col">
+                <small *ngIf="HaveSameNames && submitted" class="text-danger">* You cannot play against yourself.</small>
+            </div>
+        </div>
+        <form id="startPageForm" novalidate #form="ngForm" (ngSubmit)="submit(form)">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 col-lg-2 col-form-label" for="player1Name">Player 1:</label>
+                    <div class="col-9 col-lg-10">
+                        <input id="player1Name" name="player1Name" class="form-control custom-validation" type="text" placeholder="John Doe" #player1Name="ngModel" [(ngModel)]="Player1.Name" [class.submitted]="submitted" [class.invalid]="HaveSameNames" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <small *ngIf="submitted && player1Name.invalid" class="text-danger">
+                          *The player's name is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 col-lg-2 col-form-label" for="player2Name">Player 2:</label>
+                    <div class="col-9 col-lg-10">
+                        <input id="player2Name" name="player2Name" class="form-control custom-validation" type="text" placeholder="Jane Doe" #player2Name="ngModel" [(ngModel)]="Player2.Name" [class.submitted]="submitted" [class.invalid]="HaveSameNames" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <small *ngIf="submitted && player2Name.invalid" class="text-danger">
+                          *The player's name is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-0">
+                <div class="col">
+                    <button class="btn btn-outline-primary btn-block" type="submit">Start</button>
+                </div>
+            </div>
+            <div class="row small justify-content-end">
+                <div class="col text-right">
+                    <a [routerLink]="StatisticsRouterLink">(View players' records)</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
