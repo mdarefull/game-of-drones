@@ -54,22 +54,32 @@ namespace GameOfDrones.Services
         public virtual IReadOnlyCollection<Player> GetAll()
             => Repository
                .GetAll()
+               .OrderByDescending(p => p.Wins)
+               .ThenBy(p => p.Name)
+               .ThenBy(p => p.Id)
                .ToList();
         /// <inheritdoc />
-        public virtual Player GetById(long id)
-            => Repository.GetById(id);
+        public virtual Player GetByName(string name)
+            => Repository
+               .GetAll()
+               .FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         /// <inheritdoc />
-        public virtual Player RegisterWin(Player player)
+        public Player RegisterWin(string playerName)
         {
-            if (player == null)
-                throw new ArgumentNullException(nameof(player));
+            if (playerName == null)
+                throw new ArgumentNullException(nameof(playerName));
 
-            var actualPlayer = GetById(player.Id);
+            var actualPlayer = GetByName(playerName);
             if (actualPlayer == null)
-                Add(player);
-
-            actualPlayer.Wins++;
-            return UpdateActual(actualPlayer);
+            {
+                var newPlayer = new Player { Name = playerName };
+                return Add(newPlayer);
+            }
+            else
+            {
+                actualPlayer.Wins++;
+                return UpdateActual(actualPlayer);
+            }
         }
     }
 }

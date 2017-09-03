@@ -24,14 +24,12 @@ namespace GameOfDrones.Presentation.MvcCore.PlayersStatistics
         }
 
         [HttpPost]
-        public ObjectResult RegisterWin([FromBody]PlayerInfoViewModel vm)
+        public ObjectResult RegisterWin([FromQuery] string name)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var player = vm.ToPlayer();
-            player = PlayerServices.RegisterWin(player);
-
+            var player = PlayerServices.RegisterWin(name);
             if (player == null)
             {
                 ModelState.AddModelError("", "Couldn't register the win.");

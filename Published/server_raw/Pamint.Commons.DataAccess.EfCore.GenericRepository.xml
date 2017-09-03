@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pamint.Commons.DataAccess.EfCore.GenericRepository</name>
+    </assembly>
+    <members>
+        <member name="M:Pamint.Commons.DataAccess.EfCore.DbContextRepository`2.Update(`0)">
+            <summary>
+            Signal an update of the given item on the Db. The item is not effectively updated until a call to SaveChanges() is made.
+            </summary>
+            <param name="item">Item to Update</param>
+            <returns>Updated item or null if the items does not exists.</returns>
+            <remarks>
+            The correct usage is to load the item first, update its properties and update it to the db later.
+            At first this may seem a bad approach (tight coupled) and underperformant (2 queries), but it gives the user the biggest
+            flexibility (update a subset of properties) and robustness by detecting unexistent items without exceptions.
+            Also, this is the simpler implementation, allowing subclasses to extend (or completely hide) it.
+            </remarks>
+        </member>
+        <member name="M:Pamint.Commons.DataAccess.EfCore.DbContextRepository`2.UpdateAtomic(`0)">
+            <summary>
+            Atomicly updates the given item on the Db.
+            </summary>
+            <param name="item">Item to Update</param>
+            <returns>Updated item or null if the items does not exists.</returns>
+            <remarks>This method simply calls Update(item) and then SaveChanges(). See Update(item) for remarks.</remarks>
+        </member>
+    </members>
+</doc>

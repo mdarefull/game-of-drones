@@ -32,8 +32,12 @@ namespace GameOfDrones.Presentation.MvcCore.Startup.Application
             }
 
             ApplicationBuilder
+            .UseCors(builders => builders.AllowAnyOrigin()
+                                         .AllowAnyMethod()
+                                         .AllowAnyHeader()
+                                         .AllowCredentials())
             .UseStaticFiles()
-            .UseMvc();
+            .UseMvcWithDefaultRoute();
 
             var context = ApplicationBuilder.ApplicationServices.GetRequiredService<GameOfDronesDbContext>();
             context.Database.Migrate();

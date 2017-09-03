@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pamint.Commons.MvcCore.RoutingHelpers</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.AspNetCore.Routing.RoutingHelpers.Template(System.String[])">
+            <summary>
+            Helper method that play well with the string interpolation feature.
+            It inverts the behavior of the Microsoft.AspNetCore.Routing system. 
+            If it receives a string surrounded by '[' and ']' (instead of '{' and '}') it will take it as a static
+            segment. In oppossition, it will take every string outside '[' and ']' as a segment variable and properly 
+            surround it with '{' and '}' characters.
+            It will also add a leading '/' in case it doesn't exists.
+            </summary>
+            <param name="segments"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

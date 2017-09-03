@@ -10,8 +10,8 @@ namespace GameOfDrones.Services
         /// If such player doesn't exist it will be created with 1 win.
         /// If such player does exist, its win record will be incremented in 1.
         /// </summary>
-        /// <param name="player">The player to which a win will be registered.</param>
-        Player RegisterWin(Player player);
+        /// <param name="playerName">The player to which a win will be registered.</param>
+        Player RegisterWin(string playerName);
 
         /// <summary>
         /// Returns all the registered players of the application.
@@ -23,7 +23,7 @@ namespace GameOfDrones.Services
         /// Gets a registered player by its id, null if none could be found.
         /// </summary>
         /// <returns>A registered player with the given id.</returns>
-        Player GetById(long id);
+        Player GetByName(string name);
 
         /// <summary>
         /// Register a new player.

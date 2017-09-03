@@ -35,6 +35,7 @@ namespace GameOfDrones.Presentation.MvcCore.Startup.Services
                     .RegisterDbContextRepository<Player, long, GameOfDronesDbContext>()
                     .AddTransient<IPlayerServices, PlayerServices>()
                     .EnableScreamArchitecture()
+                    .AddCors()
                     .AddMvc();
         }
     }
