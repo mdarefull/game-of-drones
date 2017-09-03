@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using GameOfDrones.DataAccess;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Pamint.Commons.ApplicationConfiguration;
 
 namespace GameOfDrones.Presentation.MvcCore.Startup.Application
@@ -18,7 +21,7 @@ namespace GameOfDrones.Presentation.MvcCore.Startup.Application
             Environment = environment;
         }
 
-        /// <inheritdoc>
+        /// <inheritdoc />
         public override void Configure()
         {
             if (Environment.IsDevelopment())
@@ -31,6 +34,9 @@ namespace GameOfDrones.Presentation.MvcCore.Startup.Application
             ApplicationBuilder
             .UseStaticFiles()
             .UseMvc();
+
+            var context = ApplicationBuilder.ApplicationServices.GetRequiredService<GameOfDronesDbContext>();
+            context.Database.Migrate();
         }
     }
 }
