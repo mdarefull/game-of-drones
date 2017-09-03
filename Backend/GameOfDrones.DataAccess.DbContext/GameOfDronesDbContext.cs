@@ -17,6 +17,6 @@ namespace GameOfDrones.DataAccess
             new GameOfDronesConfiguration().Configure(modelBuilder);
         }
 
-        public virtual DbSet<Player> MyProperty { get; set; }
+        public virtual DbSet<Player> Players { get; set; }
     }
 }

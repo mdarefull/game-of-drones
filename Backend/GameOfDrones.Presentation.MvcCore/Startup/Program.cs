@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace GameOfDrones.Presentation.MvcCore
+namespace GameOfDrones.Presentation.MvcCore.Startup
 {
     public class Program
     {

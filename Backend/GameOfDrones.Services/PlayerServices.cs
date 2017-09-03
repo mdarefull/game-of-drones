@@ -59,7 +59,7 @@ namespace GameOfDrones.Services
         public virtual Player GetById(long id)
             => Repository.GetById(id);
         /// <inheritdoc />
-        public virtual void RegisterWin(Player player)
+        public virtual Player RegisterWin(Player player)
         {
             if (player == null)
                 throw new ArgumentNullException(nameof(player));
@@ -69,7 +69,7 @@ namespace GameOfDrones.Services
                 Add(player);
 
             actualPlayer.Wins++;
-            UpdateActual(actualPlayer);
+            return UpdateActual(actualPlayer);
         }
     }
 }

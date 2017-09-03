@@ -1,7 +1,5 @@
 ﻿using GameOfDrones.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GameOfDrones.Services
 {
@@ -13,7 +11,7 @@ namespace GameOfDrones.Services
         /// If such player does exist, its win record will be incremented in 1.
         /// </summary>
         /// <param name="player">The player to which a win will be registered.</param>
-        void RegisterWin(Player player);
+        Player RegisterWin(Player player);
 
         /// <summary>
         /// Returns all the registered players of the application.

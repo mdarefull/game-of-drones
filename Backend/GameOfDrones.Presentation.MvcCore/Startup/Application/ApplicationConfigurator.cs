@@ -27,13 +27,10 @@ namespace GameOfDrones.Presentation.MvcCore.Startup.Application
                 .UseDeveloperExceptionPage()
                 .UseStatusCodePages();
             }
-            else
-                ApplicationBuilder
-                .UseExceptionHandler("/Error");
 
             ApplicationBuilder
             .UseStaticFiles()
-            .UseMvcWithDefaultRoute();
+            .UseMvc();
         }
     }
 }
